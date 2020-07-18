@@ -15,6 +15,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'python-mode/python-mode'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'rust-lang/rust.vim'
+Plugin 'psf/black'
 
 call vundle#end()                           " required
 
@@ -34,8 +35,7 @@ set number                                  " show line numbers
 set ruler
 set ttyfast                                 " terminal acceleration
 let g:airline#extensions#tabline#enabled = 1
-
-
+autocmd BufWritePre *.py execute ':Black'
 let g:pymode_rope = 0
 let g:pymode_rope_completion = 1
 let g:pymode_rope_complete_on_dot = 1
